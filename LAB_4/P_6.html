@@ -1,0 +1,55 @@
+<!-- https://github.com/ShrushtiGNanavati07/FEWT_TA_2026/blob/main/Lab3Lab4.png -->
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+    
+      num = parseInt(prompt("Enter a number: "));
+
+      temp = num;
+      
+      arr1 = ["zero","one" , "two" , "three" , "four" , "five" , "six" , "seven" , "eight" , "nine"];
+      arr2 = ["ten" , "eleven" , "twelve" , "thirteen" , "fourteen" , "fifteen" , "sixteen" , "seventeen" , "eighteen" , "nineteen"];
+      arr3 = [" " , " " , "twenty" , "thirty" , "fourty" ,"fifty" , "sixty" , "seventy" , "eighty" , "ninty"];
+
+      word = " ";  
+
+      if(isNaN(num))
+      {
+        document.write("not a number");
+      }
+      else if(num < 10)
+      {
+        word += " " + arr1[num];
+      }
+      else if(num < 20)
+      {
+        word += " " + arr2[num - 10];
+      }
+      else if(num == 100)
+      {
+        word += " " + "hundred";
+      }
+      else (num > 100)
+      {
+          if(num % 100 == 0)
+          {
+            word += " " + arr1[Math.floor(num/100)] + " hundred";
+          }
+          else
+          {
+            word += " " + arr1[Math.floor(num/100)] + " hundred and " + arr3[Math.floor((num%100)/10)] + " " + arr1[num%10];
+          }
+      }
+
+      document.write(temp + " in words : " + word);
+    </script>
+  </body>
+</html>

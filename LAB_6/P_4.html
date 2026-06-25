@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    arr = [
+            {
+                Product_Name : "Ac",
+                price : 34000,
+                Quantity : 15,
+                Company : "Samsung"
+            },
+             {
+                Product_Name : "Smart phones",
+                price : 120000,
+                Quantity : 150,
+                Company : "Apple"
+            },
+             {
+                Product_Name : "Television",
+                price : 75000,
+                Quantity : 120,
+                Company : "LG"
+            },
+             {
+                Product_Name : "Laptop",
+                price : 150000,
+                Quantity : 45,
+                Company : "DEll"
+            },
+            
+        ];
+
+
+    document.write("<table border = '1'>");
+        document.write("<thead>");
+            document.write(`<th>Product_Name</th>
+                            <th>price</th>
+                            <th>Quantity</th>
+                            <th>Company</th>`);
+        document.write("</thead>");
+
+        document.write("<tbody>");
+        for (i = 0; i < arr.length; i++) {
+            document.write("<tr>");
+                document.write(`<td>${arr[i].Product_Name}</td>
+                                <td>${arr[i].price}</td>
+                                <td>${arr[i].Quantity}</td>
+                                <td>${arr[i].Company}</td>`);
+            document.write("</tr>");
+        }
+        document.write("</tbody>");
+    document.write("</table>");
+    </script>
+</body>
+</html>

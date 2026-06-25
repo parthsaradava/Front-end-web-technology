@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    arr = [
+            {
+                Name : "Ram",
+                Age : 17,
+                SPI : 9.8,
+                Branch : "computer"
+            },
+             {
+                Name : "Ramesh",
+                Age : 18,
+                SPI : 9.8,
+                Branch : "computer"
+            },
+             {
+                Name : "Mahesh",
+                Age : 17,
+                SPI : 9.8,
+                Branch : "computer"
+            },
+             {
+                Name : "Meera",
+                Age : 18,
+                SPI : 9.8,
+                Branch : "computer"
+            },
+             {
+                Name : "Rutvi",
+                Age : 19,
+                SPI : 9.8,
+                Branch : "computer"
+            }
+        ];
+
+
+    document.write("<table border = '1'>");
+        document.write("<thead>");
+            document.write(`<th>Name</th>
+                            <th>Age</th>
+                            <th>SPI</th>
+                            <th>Branch</th>`);
+        document.write("</thead>");
+
+        document.write("<tbody>");
+        for (i = 0; i < arr.length; i++) {
+            document.write("<tr>");
+                document.write(`<td>${arr[i].Name}</td>
+                                <td>${arr[i].Age}</td>
+                                <td>${arr[i].SPI}</td>
+                                <td>${arr[i].Branch}</td>`);
+            document.write("</tr>");
+        }
+        document.write("</tbody>");
+    document.write("</table>");
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      arr = ["arjun", "dhavink", "vasudev", "deep"];
+
+      document.write("<table border = '1'>");
+        document.write("<thead>");
+            document.write("<th>Name</th>");
+        document.write("</thead>");
+
+        document.write("<tbody>");
+        for (i = 0; i < arr.length; i++) {
+            document.write("<tr>");
+                document.write("<td>",arr[i],"</td>");
+            document.write("</tr>");
+        }
+        document.write("</tbody>");
+      document.write("</table>");
+    </script>
+  </body>
+</html>

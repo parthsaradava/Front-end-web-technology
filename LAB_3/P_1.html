@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        num1 = parseInt(prompt("Enter a number 1: "));
+        num2 = parseInt(prompt("Enter a second number: "));
+
+        choice = prompt("Enter a choice(+ , - , * , /)");
+
+        if(choice == '+')
+        {
+            ans = num1 + num2;
+            alert("Sum = " + ans);
+            document.write("sum = "+ ans);
+        }
+        else if(choice == '-')
+        {
+            ans = num1 - num2;
+            alert("sub = " + ans);
+            document.write("sub = "+ ans);
+        }
+        else if(choice == '*')
+        {
+            ans = num1 * num2;
+            alert("multi = " + ans);
+            document.write("multi = "+ ans);
+        }
+        else if(choice == '/')
+        {
+            if(num2 == 0)
+            {
+                alert("Enter a valid deviser number");
+            }
+            else
+            {
+                alert("div = " + num1 / num2);
+                document.write("div = "+ ans);
+            }
+        }
+        else
+        {
+            document.write("invalid input!")
+        }
+    </script>
+</body>
+</html>

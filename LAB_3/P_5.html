@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      a = parseInt(prompt("Enter a number to find palindrom or not: "));
+
+      temp = a;
+      rev = 0;
+      
+
+      while (a > 0) {
+        rem = a % 10;
+
+        rev = rev * 10 + rem;
+
+        a = Math.floor(a / 10);
+      }
+
+      if(rev == temp)
+      {
+        document.write(temp +" number is palindrom");
+      }
+      else
+      {
+        document.write(temp + " number is not palindrom");
+      }
+    </script>
+  </body>
+</html>

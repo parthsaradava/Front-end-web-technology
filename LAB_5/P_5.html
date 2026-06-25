@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      str = prompt("Enter a sentence: ");
+
+      arr = str.split(" ");
+
+      word = prompt("Enter a word you find in array: ");
+
+     a = arr.length;
+
+    document.write("length : " + a);
+    document.write("<br/>")
+
+     for(i=0; i<a; i++){
+        if(arr[i] == word){
+            document.write("index is : " + i);
+        }
+     }
+     
+     
+    </script>
+  </body>
+</html>

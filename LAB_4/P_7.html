@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        str = prompt("Enter a string: ").toLowerCase();
+
+        first_idx =str.indexOf("a");
+        last_idx = str.lastIndexOf("a");
+
+        substr = str.substring(first_idx+1 , last_idx)
+
+        document.write(substr);
+    </script>
+</body>
+</html>

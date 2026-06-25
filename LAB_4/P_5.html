@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      a = parseInt(prompt("Enter a 2 digit number: "));
+
+      lastdigit = a % 10;
+      firstdigit = Math.floor(a / 10);
+
+      power = 1;
+
+      for (i = 1; i <= lastdigit; i++) {
+        power = power * firstdigit;
+      }
+
+      document.write(power);
+    </script>
+  </body>
+</html>

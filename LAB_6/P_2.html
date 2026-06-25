@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("<h3>Array push</h3>")
+        arr_push = [3,2,5,1,6,7,4];
+        arr_push.push(9)
+        document.write(arr_push , "<br/>")
+
+        document.write("<hr>")
+
+        document.write("<h3>Array pop</h3>")
+        arr_pop = [1,2,3,4,5];
+        document.write(arr_pop.pop());
+
+        document.write("<hr>")
+        document.write("<h3>Array shift</h3>")
+        arr_shift = [9,8,7,6,5,4];
+        arr_shift.shift()
+        document.write(arr_shift);
+
+
+        document.write("<hr>");
+        document.write("<h3>Array unshift</h3>");
+        arr_unshift = [1,3,5,7,9];
+        arr_unshift.unshift(0)
+        document.write(arr_unshift);
+
+
+        document.write("<hr>");
+        document.write("<h3>Array slice</h3>");
+        arr_slice = [2,4,6,8,10];
+        document.write(arr_slice.slice(1,3));
+
+
+        document.write("<hr>");
+        document.write("<h3>Array sort</h3>");
+        arr_sort = [10,4,2,8,1];
+        arr_sort.sort();
+        document.write(arr_sort);
+
+
+        document.write("<hr>");
+        document.write("<h3>Array splice</h3>");
+        arr_splice = [10,4,2,8,1];
+        arr_splice.splice(1,2,"arjun","bala");
+        document.write(arr_splice);
+
+    </script>
+</body>
+</html>

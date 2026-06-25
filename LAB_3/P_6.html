@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      a = parseInt(prompt("Enter a number to find armstrong: "));
+
+      temp = temp1 = a;
+      
+      ans = 0;
+      digit = 0;
+      qub=1;
+
+      while(temp1 > 0)
+      {
+        rem1 = temp1 % 10;
+        digit++;
+        temp1 = Math.floor(temp1 / 10);
+      }
+      while (a > 0) {
+        rem = a % 10;
+        qub = rem**digit; 
+        ans = ans + qub;
+        a = Math.floor(a / 10);
+      }
+
+      if(temp == ans)
+      {
+        document.write(temp + " is armstrong number");
+      }
+      else
+      {
+        document.write(temp + " is not armstrong number");
+      }
+    </script>
+  </body>
+</html>
