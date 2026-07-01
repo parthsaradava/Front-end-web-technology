@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      current_date = new Date();
+
+      a = prompt("Enter a age (yyyy-mm-dd)");
+
+      birthday_date = new Date(a);
+
+      age = current_date.getFullYear() - birthday_date.getFullYear();
+
+      if (
+        birthday_date.getMonth() > current_date.getMonth() ||
+        birthday_date.getDay() > current_date.getDay() &&  birthday_date.getMonth() ==  current_date.getMonth()
+      ) {
+        age--;
+      }
+
+      document.write("Your age is : " + age);
+    </script>
+  </body>
+</html>

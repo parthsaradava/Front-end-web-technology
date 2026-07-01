@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      startDate = new Date(prompt("Enter start date (YYYY-MM-DD):"));
+       endDate = new Date(prompt("Enter end date (YYYY-MM-DD):"));
+
+      totalDays = 0;
+      weekends = 0;
+      workingDays = 0;
+
+      currentDate = new Date(startDate);
+
+      while (currentDate <= endDate) {
+        totalDays++;
+
+        day = currentDate.getDay();
+
+        if (day == 0 || day == 6) {
+          weekends++;
+        } else {
+          workingDays++;
+        }
+
+        currentDate.setDate(currentDate.getDate() + 1);
+      }
+
+      document.write("Total Days: " + totalDays + "<br>");
+      document.write("Weekend Days: " + weekends + "<br>");
+      document.write("Working Days: " + workingDays);
+    </script>
+  </body>
+</html>
