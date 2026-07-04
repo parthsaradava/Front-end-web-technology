@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        button{
+            border: 1px solid rgb(5, 5, 117);
+            height: 40px;
+            width: 60px;
+            background-color: aqua;
+            border-radius: 20px;
+        }
+
+        table
+        {
+            background-color: crimson;
+            align-items: center;
+            border: 2px solid black;
+            border-radius: 10px;
+            height: 300px;
+            width: 300px;
+            text-align: center;
+            
+        }
+
+        button:hover
+        {
+            background-color: blueviolet;
+        }
+
+
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" id="mytext" style="height: 30px; width:280px; border: 1px solid black; border-radius: 5px;"></td>
+        </tr>
+
+        <tr>
+            <td><button onclick="AC()">AC</button></td>
+            <td><button onclick="Backspace()"><-</button></td>
+            <td><button onclick="appendtext('%')">%</button></td>
+            <td><button onclick="appendtext('/')">/</button></td>
+        </tr>
+
+        <tr>
+            <td><button onclick="appendtext('7')">7</button></td>
+            <td><button onclick="appendtext('8')">8</button></td>
+            <td><button onclick="appendtext('9')">9</button></td>
+            <td><button onclick="appendtext('*')">*</button></td>
+        </tr>
+
+        <tr>
+            <td><button onclick="appendtext('4')">4</button></td>
+            <td><button onclick="appendtext('5')">5</button></td>
+            <td><button onclick="appendtext('6')">6</button></td>
+            <td><button onclick="appendtext('+')">+</button></td>
+        </tr>
+
+        <tr>
+            <td><button onclick="appendtext('1')">1</button></td>
+            <td><button onclick="appendtext('2')">2</button></td>
+            <td><button onclick="appendtext('3')">3</button></td>
+            <td><button onclick="appendtext('-')">-</button></td>
+        </tr>
+
+        <tr>
+            <td><button onclick="appendtext('00')">00</button></td>
+            <td><button onclick="appendtext('0')">0</button></td>
+            <td><button onclick="appendtext('.')">.</button></td>
+            <td><button onclick="finalans()">=</button></td>
+        </tr>
+    </table>
+
+    <script>
+        function AC() {
+           
+            document.getElementById("mytext").value = ''
+        }
+
+        function appendtext(op)
+        {
+            // exp = document.getElementById("mytext").value
+            document.getElementById("mytext").value += op
+        }
+
+        function Backspace() {
+            exp = document.getElementById("mytext").value
+            finalansw=exp.slice(0 , -1)
+            document.getElementById("mytext").value = finalansw
+        }
+
+        
+
+        function finalans() {
+            exp = document.getElementById("mytext").value 
+            document.getElementById("mytext").value = eval(exp);
+        }
+
+
+    </script>
+</body>
+</html>

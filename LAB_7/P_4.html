@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      table {
+        margin: 50px auto;
+        padding: 20px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+
+      td {
+        padding: 10px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input {
+        width: 220px;
+        padding: 8px;
+        border: 1px solid #999;
+        border-radius: 4px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: royalblue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: dodgerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <table>
+        <tr>
+          <td>
+            <label for="uname">Username</label>
+          </td>
+          <td><input type="text" id="uname" name="uname" /></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="pass">Password</label>
+          </td>
+          <td>
+            <input type="text" id="pass" />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="ConfPass">Conform Password</label>
+          </td>
+          <td>
+            <input type="text" id="ConfPass" />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="Age">Age</label>
+          </td>
+          <td>
+            <input type="date" id="Age" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="Enroll">Enrollment No.</label></td>
+          <td><input type="text" id="Enroll" /></td>
+        </tr>
+
+        <tr>
+          <td><label for="Email">Email id</label></td>
+          <td><input type="email" id="Email" /></td>
+        </tr>
+
+        <tr>
+          <td><button onclick="chackdata()">Submit</button></td>
+        </tr>
+      </table>
+    </form>
+
+    <script>
+      function chackdata() {
+        username = document.getElementById("uname");
+        password = document.getElementById("pass");
+        ConfPass = document.getElementById("ConfPass");
+        EnrollmentNo = document.getElementById("Enroll");
+        Email = document.getElementById("Email");
+
+        userpatten = "\\w{8,}";
+        userp = new RegExp(userpatten);
+        passwordpatten = "^(?=.*\\d)(?=.*[!@#$%^&*])[A-Za-z\\d!@#$%^&*]{8,12}$";
+        passp = new RegExp(passwordpatten);
+        EnPattern = "^\\d{11}$";
+        EP = new RegExp(EnPattern);
+        EmailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        EMP = new RegExp(EmailPattern);
+
+        let dob = document.getElementById("Age").value;
+
+        let birthDate = new Date(dob);
+        let today = new Date();
+
+        let age = today.getFullYear() - birthDate.getFullYear();
+
+        if (
+          today.getMonth() < birthDate.getMonth() ||
+          (today.getMonth() == birthDate.getMonth() &&
+            today.getDate() < birthDate.getDate())
+        ) {
+          age--;
+        }
+
+        if (!userp.test(username.value)) {
+          alert("InValid username");
+        } else if (!passp.test(password.value)) {
+          alert("InValid Password");
+        } else if (password.value != ConfPass.value) {
+          alert("Password and conform pass doesn't match");
+        } else if (age < 18) {
+          alert("Your age is invalid");
+        } else if (!EP.test(EnrollmentNo.value)) {
+          alert("Enter a valid EnrollmentNo.");
+        } else if (!EMP.test(Email.value)) {
+          alert("Enter a valid email id");
+        } else {
+          alert("Your form is submited");
+        }
+      }
+    </script>
+  </body>
+</html>

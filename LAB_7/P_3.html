@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      table {
+        border: 1px solid black;
+        border-radius: 10px;
+        height: 400px;
+        width: 300px;
+        text-align: center;
+        background-color: #2c3e50;
+        padding: 10px;
+        border-radius: 15px;
+      }
+
+      button {
+        height: 50px;
+        width: 50px;
+        background-color: #34495e;
+        color: white;
+        border: none;
+        border-radius: 8px;
+      }
+
+      button:hover {
+        background-color: #5d6d7e;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td colspan="5">
+          <input
+            type="text"
+            id="mytxt"
+            style="height: 50px; width: 280px; border-radius: 8px; background-color:#ecf0f1; color: black;"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td onclick="AC()"><button>AC</button></td>
+        <td onclick="Backspace()"><button>C</button></td>
+        <td onclick="append('(')"><button>(</button></td>
+        <td onclick="append(')')"><button>)</button></td>
+        <td onclick="append('%')"><button>%</button></td>
+      </tr>
+
+      <tr>
+        <td><button onclick="sin()">sin</button></td>
+        <td><button onclick="cos()">cos</button></td>
+        <td><button onclick="tan()">tan</button></td>
+        <td><button onclick="Log()">log</button></td>
+        <td><button onclick="Ln()">ln</button></td>
+      </tr>
+
+      <tr>
+        <td onclick="append('7')"><button>7</button></td>
+        <td onclick="append('8')"><button>8</button></td>
+        <td onclick="append('9')"><button>9</button></td>
+        <td onclick="append('/')"><button>/</button></td>
+        <td onclick="sqrt()"><button>√</button></td>
+      </tr>
+
+      <tr>
+        <td onclick="append('4')"><button>4</button></td>
+        <td onclick="append('5')"><button>5</button></td>
+        <td onclick="append('6')"><button>6</button></td>
+        <td onclick="append('*')"><button>*</button></td>
+        <td onclick="square()">
+          <button>x<sup>2</sup></button>
+        </td>
+      </tr>
+
+      <tr>
+        <td onclick="append('1')"><button>1</button></td>
+        <td onclick="append('2')"><button>2</button></td>
+        <td onclick="append('3')"><button>3</button></td>
+        <td onclick="append('-')"><button>-</button></td>
+        <td onclick="append('+')"><button>+</button></td>
+      </tr>
+
+      <tr>
+        <td onclick="append('0')"><button>0</button></td>
+        <td onclick="append('.')"><button>.</button></td>
+        <td onclick="finalAnswer()"><button>=</button></td>
+        <td onclick="pi()"><button>π</button></td>
+        <td onclick="e()"><button>e</button></td>
+      </tr>
+    </table>
+
+    <script>
+      function AC() {
+        document.getElementById("mytxt").value = "";
+      }
+
+      function append(op) {
+        document.getElementById("mytxt").value += op;
+      }
+
+      function Backspace() {
+        exp = document.getElementById("mytxt").value;
+        back = exp.slice(0, -1);
+        document.getElementById("mytxt").value = back;
+      }
+
+      function finalAnswer() {
+        exp = document.getElementById("mytxt").value;
+        document.getElementById("mytxt").value = eval(exp);
+      }
+
+      function sqrt() {
+        num = parseInt(document.getElementById("mytxt").value);
+        document.getElementById("mytxt").value = Math.sqrt(num);
+      }
+
+      function square() {
+        num = parseInt(document.getElementById("mytxt").value);
+        document.getElementById("mytxt").value = num * num;
+      }
+
+      function pi() {
+        document.getElementById("mytxt").value = Math.PI;
+      }
+
+      function e() {
+        document.getElementById("mytxt").value = Math.E;
+      }
+
+      function convertrad() {
+        num = Number(document.getElementById("mytxt").value);
+        rad = (num * Math.PI) / 180;
+        return rad;
+      }
+
+      function sin() {
+        ans = convertrad();
+        document.getElementById("mytxt").value = Math.sin(ans).toFixed(6);
+      }
+
+      function cos() {
+        ans = convertrad();
+        document.getElementById("mytxt").value = Math.cos(ans).toFixed(6);
+      }
+
+      function tan() {
+        ans = convertrad();
+        document.getElementById("mytxt").value = Math.tan(ans).toFixed(6);
+      }
+
+      function Log() {
+        num = Number(document.getElementById("mytxt").value);
+        document.getElementById("mytxt").value = Math.log(num).toFixed(4);
+      }
+
+      function Ln() {
+        num = Number(document.getElementById("mytxt").value);
+        document.getElementById("mytxt").value = Math.log10(num).toFixed(4);
+      }
+    </script>
+  </body>
+</html>
