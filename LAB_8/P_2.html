@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .main , .main2{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .styles
+        {
+            height: 200px;
+            width: 200px;
+            border: 4px solid black;
+            margin-left: 10px;
+            text-align: center;
+            margin-top: 10px;
+            
+        }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div id="box1", class="styles">
+            before over text <br>
+            before out text
+      </div>
+
+      <div class="styles" , id="box2" >
+            before click
+      </div>
+
+      <div class="styles" , id="box3">
+            on double click
+      </div>
+
+      <div class="styles" , id="box7">
+            when mouse enter
+      </div>
+    </div>
+
+    <div class="main2">
+        <div class="styles" , id="box4">
+            when click mouse Down
+      </div>
+
+      <div class="styles" , id="box5">
+            when click up
+      </div>
+
+      <div class="styles" , id="box6">
+            when mouse move
+      </div>
+
+      <div class="styles" , id ="box8">
+            when mouse leave
+      </div>
+    </div>
+
+
+    <script>
+      function mouseOver() {
+        box1 = document.getElementById("box1");
+        box1.innerHTML = "Mouse is over in Box";
+      }
+
+      box1.addEventListener("mouseover", mouseOver);
+
+      function mouseOut()
+      {
+        box1 = document.getElementById("box1");
+        box1.innerHTML = "Mouse is out of the box"
+      }
+
+      box1.addEventListener("mouseout" , mouseOut);
+
+      function OnClick() {
+        box2 = document.getElementById("box2");
+        box2.innerHTML = "Mouse was clicked on box";
+      }
+
+      box2.addEventListener("click" , OnClick);
+
+      function DBclick() {
+        box3 = document.getElementById("box3");
+        box3.innerHTML = "some one double clicked on mouse";
+      }
+
+      box3.addEventListener("dblclick" , DBclick);
+
+      function MouseDown() {
+        box4 = document.getElementById("box4");
+        box4.innerHTML = "Mouse button was downed";
+      }
+
+      box4.addEventListener("mousedown" , MouseDown);
+
+      function MouseUp() {
+        box5 = document.getElementById("box5");
+        box5.innerHTML = "Mouse button was up";
+      }
+
+      box5.addEventListener("mouseup" , MouseUp);
+
+      function MouseMove() {
+        box6 = document.getElementById("box6");
+        box6.innerHTML = "Mouse cursor was move";
+      }
+
+      box6.addEventListener("mousemove" , MouseMove);
+
+      function MouseEnter() {
+        box7 = document.getElementById("box7");
+        box7.innerHTML = "Mouse cursor enter in box";
+      }
+
+      box7.addEventListener("mouseenter" , MouseEnter);
+
+      function MouseLeave() {
+        box8 = document.getElementById("box8");
+        box8.innerHTML = "Mouse cursor was leave in box";
+      }
+
+      box8.addEventListener("mouseleave" , MouseLeave);
+
+
+
+
+    </script>
+  </body>
+</html>

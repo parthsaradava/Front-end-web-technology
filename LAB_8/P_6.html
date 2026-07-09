@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+<body>
+
+<h2>Student Registration Form</h2>
+
+<label for="">name :</label>
+<input type="text" id="name"><br><br>
+
+<label for="">Email :</label>
+<input type="text" id="email"><br><br>
+
+<label for="">Mobile :</label>
+<input type="text" id="mobile"><br><br>
+
+<button id="btn">Submit</button>
+
+<script>
+document.getElementById("btn").onclick = function() {
+
+    name = document.getElementById("name").value;
+    email = document.getElementById("email").value;
+    mobile = document.getElementById("mobile").value;
+
+    nameExp = /^[A-Za-z ]+$/;
+    emailExp = /^[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
+    mobileExp = /^[0-9]{10}$/;
+
+    if (!nameExp.test(name))
+        alert("Invalid Name");
+    else if (!emailExp.test(email))
+        alert("Invalid Email");
+    else if (!mobileExp.test(mobile))
+        alert("Invalid Mobile Number");
+    else
+        alert("Registration Successful");
+}
+</script>
+
+</body>
+</html>

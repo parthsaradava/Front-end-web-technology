@@ -1,0 +1,58 @@
+<!-- WAP to perform CRUD operation on Array using HTML and JavaScript. -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>CRUD Operations on Array</h1>
+    <input type="text" id="itemInput" placeholder="Enter an item" />
+    <button onclick="addItem()">Add Item</button>
+    <button onclick="updateItem()">Update Item</button>
+    <button onclick="deleteItem()">Delete Item</button>
+    <ul id="itemList"></ul>
+
+    <script>
+      items = [];
+
+      function addItem() {
+        input = document.getElementById("itemInput");
+        items.push(input.value);
+        input.value = "";
+        displayItems();
+      }
+
+      function updateItem() {
+        input = document.getElementById("itemInput");
+        index = items.indexOf(input.value);
+        if (index !== -1) {
+          items[index] = prompt("Enter new value:", items[index]);
+          displayItems();
+        }
+      }
+
+      function deleteItem() {
+        input = document.getElementById("itemInput");
+        index = items.indexOf(input.value);
+        if (index !== -1) {
+          items.splice(index, 1);
+          displayItems();
+        }
+      }
+
+      function displayItems() {
+        list = document.getElementById("itemList");
+        list.innerHTML = "";
+
+        for (let i = 0; i < items.length; i++) {
+          const li = document.createElement("li");
+          li.textContent = items[i];
+          list.appendChild(li);
+        }
+      }
+    </script>
+  </body>
+</html>

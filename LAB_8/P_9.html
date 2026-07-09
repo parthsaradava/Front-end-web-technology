@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard Event</title>
+</head>
+<body>
+
+<h2>Press a Key</h2>
+
+<input type="text" id="txt">
+
+<p id="msg"></p>
+
+<script>
+
+function keyPress(event)
+{
+    code = event.keyCode;
+
+    if(code==65 || code==69 || code==73 || code==79 || code==85)
+    {
+        document.getElementById("msg").innerHTML = "Vowel is Pressed";
+    }
+}
+
+function keyRelease()
+{
+    document.body.style.backgroundColor = "blue";
+}
+
+document.getElementById("txt").addEventListener("keydown", keyPress);
+document.getElementById("txt").addEventListener("keyup", keyRelease);
+
+</script>
+
+</body>
+</html>

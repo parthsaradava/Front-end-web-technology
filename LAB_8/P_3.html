@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id = "mytxt" placeholder="enter a keyDown">
+
+    <p id="saw"></p>
+
+    <input type="text" id="mytxt2" placeholder="enter a keyup">
+
+    <p id="upsaw"></p>
+
+    <input type="text" id="mytxt3" placeholder="enter a keypressed">
+
+    <p id="pressedsaw"></p>
+
+    
+
+    <script>
+        function KeyDown(event) {
+            mytxt = document.getElementById("mytxt");
+            document.getElementById("saw").innerHTML = "key : " + event.key
+            console.log(event.key)
+        }
+
+        mytxt.addEventListener("keydown" , KeyDown);
+
+        function KeyUp(event) {
+            mytxt2 = document.getElementById("mytxt2");
+            document.getElementById("upsaw").innerHTML = "key : " + event.key
+            console.log(event.key)
+        }
+
+        mytxt2.addEventListener("keyup" , KeyUp);
+
+        function Keypressed(event) {
+            mytxt3 = document.getElementById("mytxt3");
+            document.getElementById("pressedsaw").innerHTML = "key : " + event.key
+            console.log(event.key)
+        }
+
+        mytxt3.addEventListener("keypress" , Keypressed);
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .sty {
+        border: 3px solid black;
+        height: 200px;
+        width: 200px;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="changeBackGroundcolor" , class="sty"> </div>
+
+    <button onclick="DateandTime()" id = "DAT">Click</button>
+
+    <button onclick="Red()" id="Red" >Red</button>
+    <button onclick="Green()" id="Green" >Green</button>
+
+    <script>
+      change = document.getElementById("changeBackGroundcolor");
+      function outbox() {
+        change.style.backgroundColor = "yellow";
+      }
+      function inbox() {
+        change.style.backgroundColor = "Black";
+      }
+
+      change.addEventListener("mouseover", outbox);
+      change.addEventListener("mouseout", inbox);
+
+      function DateandTime() {
+            d = document.getElementById("DAT");
+            d = new Date();
+            console.log(d);
+      }
+
+
+      function Red() {
+       
+        document.body.style.backgroundColor = "red";
+      }
+
+      function Green() {
+       
+        document.body.style.backgroundColor = "green";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change DIV Properties</title>
+</head>
+<body>
+
+<div id="box" style="width:200px; height:100px; background-color:lightblue; text-align:center;">
+    Hello
+</div>
+
+<br>
+
+<button onclick="changeDiv()" , ondblclick="Originaldiv()">Change</button>
+
+
+<script>
+function changeDiv() {
+    div = document.getElementById("box");
+
+    div.style.backgroundColor = "yellow";
+    div.style.color = "red";
+    div.style.width = "300px";
+    div.style.height = "150px";
+    div.innerHTML = "Properties Changed!";
+}
+
+function Originaldiv() {
+    div = document.getElementById("box");
+
+    div.style.backgroundColor = "lightblue";
+    div.style.color = "black";
+    div.style.width = "200px";
+    div.style.height = "100px";
+    div.innerHTML = "Original properties is back";
+}
+</script>
+
+</body>
+</html>

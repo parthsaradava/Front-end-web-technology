@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="mytxt" placeholder="enter a blur" />
+
+    <p id="Blur"></p>
+
+    <input type="text" id="mytxt2" placeholder="enter a Focus" />
+
+    <p id="Focus"></p>
+
+    <form id="myform">
+      <input type="text" id="mytxt3" />
+
+      <button>Submit</button>
+    </form>
+
+    <p id="result"></p>
+
+    <div
+      id="box"
+      draggable="true"
+      style="
+        width: 150px;
+        height: 100px;
+        background: lightblue;
+        text-align: center;
+        line-height: 100px;
+      "
+    >
+      Drag Me
+    </div>
+
+    <script>
+      function Blur() {
+        mytxt = document.getElementById("mytxt");
+        document.getElementById("Blur").innerHTML = "input lost focus";
+      }
+
+      mytxt.addEventListener("blur", Blur);
+
+      function Focus() {
+        mytxt2 = document.getElementById("mytxt2");
+        document.getElementById("Focus").innerHTML = "Input is focused";
+      }
+
+      mytxt2.addEventListener("focus", Focus);
+
+      function Submit() {
+        mytxt3 = document.getElementById("mytxt3");
+        document.getElementById("result").innerHTML = "Form is submited";
+      }
+
+      mytxt3.addEventListener("submit", Submit);
+
+      
+
+      function dragFunction() {
+        box = document.getElementById("box");
+        document.getElementById("result").innerHTML = "Dragging...";
+      }
+
+      box.addEventListener("drag", dragFunction);
+    </script>
+  </body>
+</html>
