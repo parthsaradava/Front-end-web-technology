@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #SnakeImg {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        height: 130px;
+        width: 120px;
+      }
+
+      #Food {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: red;
+        left: 200px;
+        top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="StartRight()">Rigth</button>
+    <button onclick="StartLeft()">Left</button>
+    <button onclick="StartTop()">Top</button>
+    <button onclick="StartBottom()">Bottom</button>
+
+    <div id="Food"></div>
+
+    <img src="images.jpg" alt="not found" id="SnakeImg" />
+
+    <script>
+      currentSize = 130;
+      currentLeft = 100;
+      currentTop = 100;
+      intervaref = 0;
+      function StartRight() {
+        clearInterval(intervaref);
+        intervaref = setInterval(MoveRight, 5);
+      }
+
+      function MoveRight() {
+        currentLeft += 1;
+        if (currentLeft > screen.availWidth) {
+          currentLeft = 0;
+        }
+        SnakeImg = document.getElementById("SnakeImg");
+        SnakeImg.style.left = currentLeft + "px";
+
+        checkCollision();
+      }
+
+      function StartLeft() {
+        clearInterval(intervaref);
+        intervaref = setInterval(MoveLeft, 5);
+      }
+
+      function MoveLeft() {
+        currentLeft -= 1;
+        if (currentLeft < 0) {
+          currentLeft = screen.availWidth;
+        }
+        SnakeImg = document.getElementById("SnakeImg");
+        SnakeImg.style.left = currentLeft + "px";
+
+        checkCollision();
+      }
+
+      function StartBottom() {
+        clearInterval(intervaref);
+        intervaref = setInterval(MoveBottom, 5);
+      }
+
+      function MoveBottom() {
+        currentTop += 1;
+        if (currentTop > screen.availHeight) {
+          currentTop = 0;
+        }
+        SnakeImg = document.getElementById("SnakeImg");
+        SnakeImg.style.top = currentTop + "px";
+
+        checkCollision();
+      }
+
+      function StartTop() {
+        clearInterval(intervaref);
+        intervaref = setInterval(MoveTop, 5);
+      }
+
+      function MoveTop() {
+        currentTop -= 1;
+        if (currentTop < 0) {
+          currentTop = screen.availHeight;
+        }
+        SnakeImg = document.getElementById("SnakeImg");
+        SnakeImg.style.top = currentTop + "px";
+        checkCollision();
+      }
+
+      document.addEventListener("keydown", controlGame);
+
+      function controlGame(e) {
+        if (e.key == "ArrowRight") {
+          StartRight();
+        } else if (e.key == "ArrowLeft") {
+          StartLeft();
+        } else if (e.key == "ArrowUp") {
+          StartTop();
+        } else if (e.key == "ArrowDown") {
+          StartBottom();
+        }
+      }
+
+      function moveFood() {
+        food = document.getElementById("Food");
+
+        x = Math.floor(Math.random() * (window.innerWidth - 15));
+        y = Math.floor(Math.random() * (window.innerHeight - 15));
+
+        food.style.left = x + "px";
+        food.style.top = y + "px";
+      }
+
+      moveFood();
+
+      function checkCollision() {
+        const snake = document.getElementById("SnakeImg");
+        const food = document.getElementById("Food");
+
+        snakeRect = snake.getBoundingClientRect();
+        foodRect = food.getBoundingClientRect();
+
+        if (
+          snakeRect.left < foodRect.right &&
+          snakeRect.right > foodRect.left &&
+          snakeRect.top < foodRect.bottom &&
+          snakeRect.bottom > foodRect.top
+        ) {
+          moveFood();
+
+          currentSize += 10;
+          snake.style.width = currentSize + "px";
+          snake.style.height = currentSize + "px";
+        }
+      }
+    </script>
+  </body>
+</html>

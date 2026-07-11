@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <style>
+      #absentNos {
+        position: sticky;
+        top: 100px;
+        left: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-4" id="rollNos">
+          <button onclick="checkuncheckAll(true)">Check</button>
+          <button onclick="checkuncheckAll(false)">Uncheck</button>
+          <br />
+          <script>
+            for (i = 301; i < 467; i++) {
+              document.write(
+                "<input onclick='updateAbsents()' type='checkbox' value='" +
+                  i +
+                  "' /> " +
+                  i +
+                  "<br/>",
+              );
+            }
+          </script>
+        </div>
+        <div class="col">
+          <textarea rows="5" cols="50" id="absentNos"></textarea>
+        </div>
+      </div>
+    </div>
+    <script>
+      function checkuncheckAll(temp) {
+        allStudents = document.getElementsByTagName("input");
+        for (i = 0; i < allStudents.length; i++) {
+          allStudents[i].checked = temp;
+        }
+      }
+      function updateAbsents() {
+        allStudents = document.getElementsByTagName("input");
+        absents = [];
+        for (i = 0; i < allStudents.length; i++) {
+          if (!allStudents[i].checked) {
+            absents.push(allStudents[i].value);
+          }
+        }
+        document.getElementById("absentNos").innerHTML = absents;
+      }
+    </script>
+  </body>
+</html>
