@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Attendance System</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: #eef2f7;
+        padding: 30px;
+      }
+
+      .container {
+        display: flex;
+        gap: 30px;
+      }
+
+      .left {
+        width: 45%;
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .right {
+        width: 55%;
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .buttons {
+        margin-bottom: 15px;
+      }
+
+      button {
+        border: none;
+        padding: 10px 18px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        color: white;
+        font-size: 15px;
+      }
+
+      .check {
+        background: #28a745;
+      }
+
+      .uncheck {
+        background: #dc3545;
+      }
+
+      
+
+      button:hover {
+        opacity: 0.9;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+      }
+
+      .students {
+        height: 450px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 10px;
+      }
+
+      label {
+        display: block;
+        padding: 8px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+      }
+
+      label:hover {
+        background: #f2f7ff;
+      }
+
+      .info {
+        margin: 15px 0;
+        font-size: 17px;
+        line-height: 30px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 300px;
+        resize: none;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #bbb;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <h2>Attendance System</h2>
+
+        <input
+          type="text"
+          id="search"
+          placeholder="Search Roll Number..."
+          onkeyup="searchStudent()"
+        />
+
+        <div class="buttons">
+          <button class="check" onclick="ChangeAll(true)">Check All</button>
+
+          <button class="uncheck" onclick="ChangeAll(false)">
+            Uncheck All
+          </button>
+
+          
+        </div>
+
+        <div class="info">
+          <b>Total Students :</b>
+          <span id="total"></span>
+
+          <br />
+
+          <b>Present :</b>
+          <span id="present"></span>
+
+          <br />
+
+          <b>Absent :</b>
+          <span id="absent"></span>
+        </div>
+
+        <div class="students" id="studentList"></div>
+      </div>
+
+      <div class="right">
+        <h2>Absent Roll Numbers</h2>
+
+        <textarea id="result" readonly></textarea>
+      </div>
+    </div>
+
+    <script>
+      let studentList = document.getElementById("studentList");
+
+      for (let i = 101; i <= 265; i++) {
+        studentList.innerHTML += `
+        <label><input type="checkbox" value="${i}" onclick="changeABpr()">${i}</label>`;
+      }
+
+      document.getElementById("total").innerHTML = 165;
+
+      changeABpr();
+
+
+      function changeABpr() {
+        let allstudents = document.getElementsByTagName("input");
+
+        let absents = [];
+
+        let present = 0;
+
+        for (let i = 0; i < allstudents.length; i++) {
+          if (allstudents[i].type == "checkbox") {
+            if (allstudents[i].checked) {
+              present++;
+            } else {
+              absents.push(allstudents[i].value);
+            }
+          }
+        }
+
+        document.getElementById("result").value = absents.join(", ");
+
+        document.getElementById("present").innerHTML = present;
+
+        document.getElementById("absent").innerHTML = absents.length;
+      }
+
+     
+
+      function ChangeAll(temp) {
+        let allstudents = document.getElementsByTagName("input");
+
+        for (let i = 0; i < allstudents.length; i++) {
+          if (allstudents[i].type == "checkbox") {
+            allstudents[i].checked = temp;
+          }
+        }
+
+        changeABpr();
+      }
+
+     
+
+      
+
+   
+
+      function searchStudent() {
+        let value = document.getElementById("search").value.toLowerCase();
+
+        let labels = document.querySelectorAll("#studentList label");
+
+        labels.forEach(function (label) {
+          if (label.innerText.includes(value)) {
+            label.style.display = "block";
+          } else {
+            label.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
