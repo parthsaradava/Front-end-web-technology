@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="checkbox" id="roll" value="101" onclick="Checked()" />
+    <label for="roll">101</label>
+    <br/>
+    <input type="checkbox" id="roll" value="102" onclick="Checked()" />
+    <label for="roll">102</label>
+    <br/>
+    <input type="checkbox" id="roll" value="103" onclick="Checked()" />
+    <label for="roll">103</label>
+    <br/>
+    <input type="checkbox" id="roll" value="104" onclick="Checked()" />
+    <label for="roll">104</label>
+    <br/>
+    <input type="checkbox" id="roll" value="105" onclick="Checked()" />
+    <label for="roll">105</label>
+    <br/>
+    <input type="checkbox" id="roll" value="106" onclick="Checked()" />
+    <label for="roll">106</label>
+    <br/>
+    <input type="checkbox" id="roll" value="107" onclick="Checked()" />
+    <label for="roll">107</label>
+    <br/>
+    <input type="checkbox" id="roll" value="108" onclick="Checked()" />
+    <label for="roll">108</label>
+    <br/>
+    <input type="checkbox" id="roll" value="109" onclick="Checked()" />
+    <label for="roll">109</label>
+    <br/>
+    <input type="checkbox" id="roll" value="110" onclick="Checked()" />
+    <label for="roll">110</label>
+    <h2 id="msg"></h2>
+
+    <script>
+      function Checked() {
+        check = document.getElementsByTagName("input");
+
+        arr = [];
+        for (i = 0; i < check.length; i++) {
+          if (check[i].checked) {
+            arr.push(check[i].value);
+          }
+        }
+
+        document.getElementById("msg").innerHTML = arr.join(",");
+          
+    }
+    </script>
+  </body>
+</html>

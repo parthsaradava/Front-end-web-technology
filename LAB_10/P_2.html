@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="msg"></h1>
+
+    <script>
+        document.addEventListener("click" , ()=>{
+            document.getElementById("msg").innerHTML = "Left button Clicked";
+        });
+
+        document.addEventListener("contextmenu" , (event)=>{
+            event.preventDefault();
+            document.getElementById("msg").innerHTML = "Right button Clicked";
+        });
+    </script>
+</body>
+</html>
