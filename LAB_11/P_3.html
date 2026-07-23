@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let markes = [78, 85, 92, 88, 76];
+      let total = 0
+      for (temp of markes) {
+            document.write("Marks : " , temp , "<br/>")
+            total += temp;
+      }
+
+      length = markes.length;
+
+      avg = total / length;
+
+      document.write("Total marks: " , total);
+      document.write("<br/>")
+      document.write("avg marks: " , avg);
+      
+    </script>
+  </body>
+</html>

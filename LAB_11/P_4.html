@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1, 2 , 3 , 4 , 5];
+        let [a1 , a2 , ...Restarr] = arr;
+
+        console.log(a1);
+        console.log(a2);
+        console.log(...Restarr);
+
+
+        let obj = {
+            name : "Parth",
+            age : 20,
+            city : "Morbi",
+            SPI : 9.00
+        }
+
+        let { name , age , ...Reobj} = obj;
+        console.log("Name : ", name);
+        console.log("Age : ", age);
+        console.log("Other properties: ",Reobj);
+
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class car {
+            constructor(company , modal) {
+                this.company = company;
+                this.modal  = modal;
+            }
+
+            display()
+            {
+                console.log("Company : " , this.company);
+                console.log("Modal : " , this.modal);
+                document.write("Company : " , this.company);
+                document.write("<br/>")
+                document.write("Modal : " , this.modal);
+            }
+        }
+
+        let c1 = new car("BMW" , "BMW X7");
+        c1.display();
+    </script>
+</body>
+</html>
