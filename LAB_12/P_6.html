@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Roll no</th>
+                <th>name</th>
+                <th>spi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>242</td>
+                <td>parth</td>
+                <td>9.00</td>
+            </tr>
+            <tr>
+                <td>258</td>
+                <td>om</td>
+                <td>9.10</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="mybtn1">add</button>
+
+
+    <script>
+        $("#mybtn1").click(()=>{
+            $('tbody').append("<tr><td>257</td><td>jenish</td><td>9.10</td></tr>")
+        })
+    </script>
+</body>
+</html>

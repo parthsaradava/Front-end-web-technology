@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+</head>
+<body>
+    <label for="">first name</label>
+    <input type="text" >
+    <label for="">middal name</label>
+    <input type="text">
+    <label for="">last name</label>
+    <input type="text">
+    
+
+    <button id="btn">Click</button>
+
+
+    <script>
+        $("#btn").click(()=>{
+            $('input').css({backgroundColor:'red'});
+        })
+    </script>
+</body>
+</html>

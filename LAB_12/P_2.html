@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+</head>
+<body>
+    <img src="images.jpg" alt="not found" id="img1">
+
+    <button id="btn1">slide up</button>
+    <button id="btn2">slide down</button>
+    <button id="btn3">slide toggle</button>
+
+
+    <script>
+        $("#btn1").click(()=>{
+            $("#img1").slideUp();
+        })
+         $("#btn2").click(()=>{
+            $("#img1").slideDown();
+        })
+        $("#btn3").click(()=>{
+            $("#img1").slideToggle();
+        })
+    </script>
+</body>
+</html>

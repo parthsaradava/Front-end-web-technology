@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+</head>
+<body>
+    <ul id="order">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <button id="mybtn1">append</button>
+    <button id="mybtn2">prepend</button>
+
+    <script>
+        $("#mybtn1").click(()=>{
+            $("#order").append("<li>Hello world</li>");
+        })
+        $("#mybtn2").click(()=>{
+            $("#order").prepend("<li>Hello world</li>");
+        })
+    </script>
+</body>
+</html>

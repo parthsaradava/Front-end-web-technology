@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+  </head>
+  <body>
+    <h2>Copy content</h2>
+    <p id="setcont"></p>
+
+    <br>
+    <h2>original Content</h2>
+    <div>
+      <p id="getcont">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas maiores
+        recusandae esse cumque nam ipsum aliquam distinctio a quam! Ipsam in
+        magni aliquam illo architecto est ratione saepe cum sapiente.
+      </p>
+    </div>
+
+    <button id="click">click</button>
+    <script>
+        $("#click").click(()=>{
+            $("#setcont").text($("#getcont").text());  
+        })
+    </script>
+  </body>
+</html>

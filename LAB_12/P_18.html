@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+  </head>
+  <body>
+    <label for="name">Enter name : </label>
+    <input type="text" id="name" name="name" required/>
+    <br>
+    <br>
+    <label for="en">Enter Enrollment No : </label>
+    <input type="number" id="en" name="en" required/>
+    <br>
+    <br>
+    <label for="id">Email id : </label>
+    <input type="text" id="id" name="id" required/>
+    <br>
+    <br>
+    <label for="no">Phone no. : </label>
+    <input type="number" id="phone" name="phone" required/>
+    <br>
+    <br>
+
+    <button id="submit">Submit</button>
+
+    <script>
+      $("#submit").click(() => {
+        var name = $("#name").val().trim();
+        pattername = /^[A-Za-z ]+$/;
+
+        var en = $("#en").val().trim();
+        patternen = /^\d{11}$/;
+
+        var eid = $("#id").val().trim();
+        patterneid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/;
+
+        var pno = $("#phone").val().trim();
+        patternpno = /^\d{10}$/;
+
+        if (!pattername.test(name)) {
+          alert("Enter a  valid name");
+        } else if (!patternen.test(en)) {
+          alert("Enter a  valid enrollment number");
+        } else if (!patterneid.test(eid)) {
+          alert("Enter a valid Email id");
+        } else if (!patternpno.test(pno)) {
+          alert("Enter a valid phone number");
+        } else {
+          alert("Your form is succesfully submited");
+        }
+      });
+    </script>
+  </body>
+</html>

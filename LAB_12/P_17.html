@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+  </head>
+  <body>
+    <input type="text" />
+    <h1 id="myh1"></h1>
+    <script>
+      $("input").focusout(() => {
+        var enrollmentno = $("input").val().trim();
+
+        var patter = /^\d{11}$/;
+
+        if (patter.test(enrollmentno)) {
+            $("#myh1").html("Enrol\ment number is valid");
+        }
+        else
+        {
+            $("#myh1").html("Enrollment number is not valid");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="mydiv">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt a
+        quaerat, quibusdam, mollitia libero deleniti voluptates ipsam possimus
+        alias sapiente unde est beatae inventore animi architecto. Mollitia eos
+        voluptas sint?
+      </p>
+      <h2>Hello world</h2>
+    </div>
+
+    <h2>Outside the div</h2>
+
+    <button id="mybtn">Click</button>
+
+    <script>
+        $("#mybtn").click(()=>{
+            $("#mydiv").children().css("backgroundColor" , "red");
+        })
+    </script>
+  </body>
+</html>
