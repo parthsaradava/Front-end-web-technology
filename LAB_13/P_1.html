@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD using jQuery</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        input {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            width: 70px;
+            height: 70px;
+        }
+
+        button {
+            margin: 3px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Student CRUD Using jQuery</h2>
+
+<input type="text" id="fname" placeholder="First Name">
+<input type="text" id="lname" placeholder="Last Name">
+<input type="number" id="age" placeholder="Age">
+<input type="text" id="semester" placeholder="Semester">
+<input type="text" id="roll" placeholder="Roll Number">
+<input type="text" id="image" placeholder="Image Path">
+
+<button id="save">Save</button>
+<button id="update" style="display:none;">Update</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Semester</th>
+            <th>Roll No</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody id="studentTable"></tbody>
+</table>
+
+<script>
+
+var students = [
+    {
+        FirstName:"Ali",
+        LastName:"Khan",
+        Age:20,
+        Semester:"5th",
+        RollNumber:"101",
+        ImagePath:"https://via.placeholder.com/70"
+    },
+    {
+        FirstName:"Sara",
+        LastName:"Ahmed",
+        Age:21,
+        Semester:"6th",
+        RollNumber:"102",
+        ImagePath:"https://via.placeholder.com/70"
+    }
+];
+
+var editIndex = -1;
+
+// Display Data
+function displayStudents(){
+
+    $("#studentTable").html("");
+
+    $.each(students,function(index,student){
+
+        $("#studentTable").append(`
+        <tr>
+            <td>${student.FirstName}</td>
+            <td>${student.LastName}</td>
+            <td>${student.Age}</td>
+            <td>${student.Semester}</td>
+            <td>${student.RollNumber}</td>
+            <td><img src="${student.ImagePath}"></td>
+
+            <td>
+                <button class="edit" data-id="${index}">Edit</button>
+                <button class="delete" data-id="${index}">Delete</button>
+            </td>
+        </tr>
+        `);
+
+    });
+
+}
+
+displayStudents();
+
+
+// CREATE
+$("#save").click(function(){
+
+    var student = {
+
+        FirstName:$("#fname").val(),
+        LastName:$("#lname").val(),
+        Age:$("#age").val(),
+        Semester:$("#semester").val(),
+        RollNumber:$("#roll").val(),
+        ImagePath:$("#image").val()
+
+    };
+
+    students.push(student);
+
+    displayStudents();
+
+    $("input").val("");
+
+});
+
+
+// DELETE
+$(document).on("click",".delete",function(){
+
+    var id = $(this).data("id");
+
+    students.splice(id,1);
+
+    displayStudents();
+
+});
+
+
+// EDIT
+$(document).on("click",".edit",function(){
+
+    editIndex = $(this).data("id");
+
+    var s = students[editIndex];
+
+    $("#fname").val(s.FirstName);
+    $("#lname").val(s.LastName);
+    $("#age").val(s.Age);
+    $("#semester").val(s.Semester);
+    $("#roll").val(s.RollNumber);
+    $("#image").val(s.ImagePath);
+
+    $("#save").hide();
+    $("#update").show();
+
+});
+
+
+// UPDATE
+$("#update").click(function(){
+
+    students[editIndex] = {
+
+        FirstName:$("#fname").val(),
+        LastName:$("#lname").val(),
+        Age:$("#age").val(),
+        Semester:$("#semester").val(),
+        RollNumber:$("#roll").val(),
+        ImagePath:$("#image").val()
+
+    };
+
+    displayStudents();
+
+    $("input").val("");
+
+    $("#update").hide();
+    $("#save").show();
+
+});
+
+</script>
+
+</body>
+</html>
